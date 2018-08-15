@@ -62,16 +62,16 @@ contract Transaction {
         else payables = working_hours*233*base_wage;
         
         //判斷薪資是否合格
-        if (payables >= address(this).balance/ETH_to_TWD_100) legal=true;
+        if (payables >= address(this).balance/ETH_to_TWD_100) legal = true;
         else revert("薪資過少");
 
-        create_time=now;
+        create_time = block.timestamp;
     }
     
     //若仍未休假，勞方領取加班費
     function collectMoney() public {
         //如果時間已經超過8週
-        if ((now - create_time)> (expire * 1 seconds)) {
+        if ((block.timestamp - create_time) > (expire * 1 seconds)) {
             //設定補休假期結束
             ended = true;
         }
