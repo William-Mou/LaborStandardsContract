@@ -1,0 +1,4 @@
+miner.start()
+miner.setEtherbase("0x402b341938ae5ea8e1b92a66bbc43bd1289b68a0")
+miner.start()
+geth attach

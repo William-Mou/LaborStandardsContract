@@ -2,24 +2,24 @@ pragma solidity ^0.4.17;
 
 contract Transaction {
     //定義勞方、資方
-    address employee;
-    address employer;
+    address public employee;
+    address public employer;
     //定義創見時間
-    uint create_time;
+    uint public create_time;
     //定義基本薪資
-    uint base_wage;
+    uint public base_wage;
     //定義應付薪資
-    uint payables;
+    uint public payables;
     //定義修補期限
-    uint expire = 8;
+    uint public expire = 8;
     //定義工作時數
-    uint working_hours;
+    uint public working_hours;
     //＊定義每 wei 兌台幣之轉換 
-    uint ETH_to_TWD_100 = 3000000;
+    uint public ETH_to_TWD_100 = 3000000;
     //定義合約是否為合法合約
-    bool legal = false;
+    bool public legal = false;
     //定義補休假期限是否結束
-    bool ended = false;
+    bool public ended = false;
     
     
     event contract_status(
@@ -102,4 +102,7 @@ contract Transaction {
             address(this).balance
         );
     }
+}
+function () public payable { 
+    revert();
 }
